@@ -1,3 +1,4 @@
+{% load static tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -5,11 +6,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'style.css'%}" />
-    {% block title %} default value {% endblock %} {% comment %} ye hai block
+    {% block title %} default value {% endblock %} 
+    {% comment %}
+     ye hai block
     (template engine) , dynamic content load kara sakte , {% endcomment %}
+
+     {% tailwind_css %}
   </head>
   <body>
-    <nav>this is navBar</nav>
+    {% comment %} <nav>this is navBar</nav> {% endcomment %}
     {% block content %}{% endblock %}
   </body>
 </html>
