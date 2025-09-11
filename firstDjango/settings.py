@@ -81,6 +81,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'firstDjango.wsgi.application'
 
 
+# Media file
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
