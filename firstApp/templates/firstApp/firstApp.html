@@ -11,8 +11,8 @@
 <div class="grid grid-cols-3 gap-4 m-4">
 
   {% for cors in courses  %}
-  <div class="bg-cyan-200 p-5 rounded">
-    <img class="rounded shadow-lg " src="{{cors.image.url}}" alt={{cors.name}}>
+  <div class="bg-gray-900 p-5 rounded-md">
+    <img class="w-full h-64 object-cover rounded-lg shadow-md" src="{{cors.image.url}}" alt={{cors.name}}>
     
     <h3 class="text-2xl font-bold">{{cors.name}}</h3>
     

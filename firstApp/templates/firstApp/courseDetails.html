@@ -1,34 +1,55 @@
 {% extends "layout.html" %}
 
 {% block title %}
-<h1 class="text-cyan-600 font-bold text-center text-3xl mt-3">Course Detail Page</h1>
+Course Detail
 {% endblock %}
 
 {% block content %}
-<div class="grid grid-cols gap-4 m-4  items-center justify-center ">
-<img src="{{detail.image.url}}" alt="{{detail.name}}" class="h-[90%] w-[90%] rounded-2xl shadow-2xl">
-<div class="justify-items-end   ">
-<a href="{% url 'first_App' %}">
-        <button class="text-amber-600 bg-amber-100 p-3 rounded-3xl">
-          <- back  
-        </button>
-    </a>
-    <div class="bg-amber-100 p-3 rounded-2xl">
-      
-      <a href="{% url 'course_Price' detail.id %}">
-        <button  class=" text-emerald-800 font-mono text-2xl">
-          Buy Now 
-        </button>
-    </a>
-    </div>
-    </div>
-</div>
+<div class="max-w-4xl mx-auto p-4 space-y-6">
 
-<div class="text-center mt-2 mb-2">
-    <h1 class="text-cyan-400">Course Name</h1>
- <h3 class="text-2xl ">{{detail.name}}</h3>
- <h1 class="text-cyan-400">Descripation</h1>
-<p>{{detail.description}}</p>
-</div>
+    <!-- Page Heading -->
+    <h1 class="text-3xl font-bold text-center text-cyan-600 mt-4">
+        Course Detail Page
+    </h1>
 
+    <!-- Image Section -->
+    <div class="flex justify-center">
+        <img src="{{detail.image.url}}" alt="{{detail.name}}" class="h-80 w-full max-w-md rounded-2xl shadow-2xl object-cover">
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        
+        <!-- Back Button -->
+        <a href="{% url 'first_App' %}">
+            <button class="px-5 py-2 bg-amber-100 text-amber-600 rounded-3xl hover:bg-amber-200 transition">
+                &larr; Back
+            </button>
+        </a>
+
+        <!-- Buy Now Button -->
+        <a href="{% url 'course_Price' detail.id %}">
+            <button class="px-6 py-3 bg-amber-100 text-emerald-800 font-mono text-xl rounded-2xl hover:bg-amber-200 transition">
+                Buy Now
+            </button>
+        </a>
+
+    </div>
+
+    <!-- Course Details Section -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-md space-y-4">
+        
+        <div class="text-center">
+            <h2 class="text-cyan-500 font-semibold">Course Name</h2>
+            <h3 class="text-2xl font-bold text-gray-700">{{detail.name}}</h3>
+        </div>
+
+        <div>
+            <h2 class="text-cyan-500 font-semibold mb-2">Description</h2>
+            <p class="text-gray-600 text-justify">{{detail.description}}</p>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}
