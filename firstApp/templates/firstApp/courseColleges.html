@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
+  
+  <!-- Heading -->
+  <h1 class="text-3xl font-bold text-center text-cyan-600 mb-6">Course College</h1>
+  
+  <!-- Form -->
+  <form method="POST" class="space-y-4 bg-gray-500 text-amber-100 p-6 rounded-lg shadow-inner ">
+    {% csrf_token %}
+    
+    {{ form.as_p|safe }}
+    
+    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-300">
+      Search Stores
+    </button>
+  </form>
+
+  <!-- Colleges List -->
+  {% if colleges %}
+  <div class="mt-8 bg-gray-500 p-6 rounded-lg shadow-inner">
+    <h2 class="text-2xl font-semibold text-center text-cyan-500 mb-4">Colleges with selected Course Variety</h2>
+    <ul class="space-y-2 list-disc list-inside text-gray-700">
+      {% for college in colleges %}
+      <li class="hover:bg-cyan-300 text-amber-100 hover:shadow-md p-2 rounded transition duration-200">
+        <span class="font-medium">{{ college.college_name }}</span > - {{ college.collage_location }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
