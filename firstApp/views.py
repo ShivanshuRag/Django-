@@ -29,3 +29,6 @@ def course_college_view(request):
     return render(request , 'firstApp/courseColleges.html',{'form': form ,'colleges':colleges , })
 
 
+
+
+

@@ -27,7 +27,7 @@ class CourseVariety(models.Model):
 
 #  One to many relations
 
-class courseReview(models.Model):
+class CourseReview(models.Model):
     course = models.ForeignKey(CourseVariety , on_delete=models.CASCADE , related_name="review")
     user = models.ForeignKey(User, on_delete=models.CASCADE  )
     rating = models.IntegerField()
@@ -39,7 +39,7 @@ class courseReview(models.Model):
     
 # many to many 
 
-class college(models.Model):
+class College(models.Model):
     college_name = models.CharField(max_length=100)
     collage_location = models.CharField(max_length=100)
     course_varities = models.ManyToManyField(CourseVariety , related_name="college")
@@ -50,7 +50,7 @@ class college(models.Model):
 
 # one to one 
 
-class Coursecertificate(models.Model):
+class CourseCertificate(models.Model):
     course = models.OneToOneField(CourseVariety , on_delete=models.CASCADE ,related_name='certificate')
     certificate_number = models.CharField(max_length=100)
     issued_date = models.DateTimeField(default=timezone.now)
